@@ -2,7 +2,6 @@ export function searchTunes(query: string) {
   return fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(query)}&media=music`).then((res) => {
     return res.json()
   }).then((data) => {
-    console.log('data')
     return data;
   })
 }

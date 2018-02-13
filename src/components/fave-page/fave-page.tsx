@@ -1,4 +1,4 @@
-import { Component, State } from '@stencil/core';
+import { Component, Listen, State } from '@stencil/core';
 
 import { getSaved } from '../../global/save-service';
 
@@ -12,6 +12,12 @@ export class FavePage {
   @State() tracks: any[] = [];
 
   async componentDidLoad() {
+    this.tracks = await getSaved();
+  }
+
+  @Listen('trackDeleted')
+  async getTracks() {
+    console.log('here');
     this.tracks = await getSaved();
   }
 

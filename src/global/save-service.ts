@@ -25,13 +25,16 @@ export async function deleteFave(song: any) {
   const songs = await idbKeyval.get('faves');
 
   const found = songs.findIndex((element) => {
+    console.log(element, song);
     return element.trackName === song.trackName;
   });
 
-  if (found) {
-    const newSongs = songs.splice(found, 1);
-    console.log(newSongs);
-    await idbKeyval.set('faves', newSongs);
+  console.log(found);
+
+  if (found >= 0) {
+    songs.splice(found, 1);
+    console.log(songs);
+    await idbKeyval.set('faves', songs);
   }
 }
 
