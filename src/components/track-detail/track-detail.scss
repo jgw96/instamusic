@@ -1,0 +1,50 @@
+track-detail {
+  h2 {
+    color: white;
+  }
+
+  #cover-image {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    z-index: -99;
+  }
+
+  #player-block {
+    position: fixed;
+    bottom: 1em;
+    left: 16px;
+  }
+
+  ion-fab {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  #share-button {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+  }
+
+  #fave-button {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+  }
+
+  #share-button svg, #fave-button svg {
+    fill: white;
+  }
+
+  #share-button ion-icon, #fave-button ion-icon {
+    font-size: 2em;
+  }
+
+
+}
