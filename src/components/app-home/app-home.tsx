@@ -13,11 +13,14 @@ export class AppHome {
   @State() songs: any[];
 
   @Prop() history: RouterHistory;
+  @Prop({ context: 'isServer' }) private isServer: boolean;
 
   async componentDidLoad() {
-    const data = await searchTunes('the beatles');
-    this.songs = data.results;
-    console.log(this.songs);
+    if (!this.isServer) {
+      const response = await fetch('/assets/data.json');
+      const data = await response.json();
+      this.songs = data.results;
+    }
   }
 
   @Listen('ionInput')

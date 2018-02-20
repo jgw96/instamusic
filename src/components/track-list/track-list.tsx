@@ -11,7 +11,7 @@ export class TrackList {
 
   @Prop() tracks: any[];
   @Prop() fave: boolean;
-  @Prop({ context: 'activeRouter'}) activeRouter: ActiveRouter;
+  @Prop({ context: 'activeRouter' }) activeRouter: ActiveRouter;
 
   @Event() trackDeleted: EventEmitter;
 
@@ -30,7 +30,7 @@ export class TrackList {
   render() {
     if (this.tracks) {
       const songs = this.tracks.map((track) => {
-        return (
+        /*return (
           <ion-item>
             <ion-thumbnail slot="start" onClick={() => this.navigateToTrack(track)}>
               <lazy-img src={track.artworkUrl100} alt={track.trackName}></lazy-img>
@@ -45,6 +45,23 @@ export class TrackList {
               this.fave ? <ion-button fill='clear' color='danger' onClick={() => this.deleteFavorite(track)}>Remove</ion-button> : null
             }
           </ion-item>
+        )*/
+        return (
+          <ion-card>
+            <lazy-img src={track.artworkUrl100.replace(/100x100bb/, '400x400bb')} alt={track.trackName}></lazy-img>
+            <ion-card-content>
+              <ion-card-title>{track.trackName}</ion-card-title>
+
+              <p>Artist: {track.artistName}</p>
+              <p>Album: {track.collectionName}</p>
+            </ion-card-content>
+
+            <ion-buttons>
+              <ion-button fill='clear' color='primary' onClick={() => this.navigateToTrack(track)}>
+                Play
+                </ion-button>
+            </ion-buttons>
+          </ion-card>
         )
       });
 

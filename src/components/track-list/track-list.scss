@@ -11,4 +11,18 @@ track-list {
     background-size: 100% 80px, 100% 80px, 20% 80px;
     background-position: 10px 0, 10px 30px;
   }
+
+  ion-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    display: grid;
+  }
+
+  ion-list img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  lazy-img {
+    height: 392px;
+  }
 }

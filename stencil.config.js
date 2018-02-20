@@ -1,3 +1,5 @@
+const sass = require('@stencil/sass');
+
 exports.config = {
   serviceWorker: {
     swSrc: 'src/sw.js',
@@ -9,7 +11,10 @@ exports.config = {
       'build/app/*.es5.js'
     ]
   },
-  globalStyle: 'src/global/app.css'
+  globalStyle: 'src/global/app.css',
+  plugins: [
+    sass()
+  ]
 };
 
 exports.devServer = {
